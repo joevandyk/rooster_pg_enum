@@ -12,6 +12,8 @@
 # Also, to get a list of valid values for the `action_taken` column, do:
 #   refund.enum_values_for(:action_taken)
 # This will return an array of valid values for the enum.
+require 'active_record'
+require 'active_support/concern'
 module Rooster
   module PgEnum
     extend ActiveSupport::Concern
