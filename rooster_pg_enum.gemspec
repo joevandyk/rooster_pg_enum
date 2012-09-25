@@ -6,4 +6,5 @@ Gem::Specification.new do |s|
   s.date = %q{2012-09-25}
   s.summary = %q{automatically validate pg enums in activerecord}
   s.author = "Joe Van Dyk <joe@tanga.com>"
+  s.add_dependency('activerecord', '>= 3')
 end
