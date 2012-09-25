@@ -31,7 +31,12 @@ module Rooster
     extend ActiveSupport::Concern
     module ClassMethods
       # Fetch the valid values of the enum, setup the validations.
-      def pg_enum enum_name
+      def pg_enum enum_name, options={}
+        raise_errors = options[:raise_errors] || false
+
+        # If raise_errors set to true, use `validates!`. Otherwise, use `validates`
+        validation_method = raise_errors ? "validates!" : "validates"
+
         column = columns.find { |c| c.name == enum_name.to_s }
         sql_type = column.sql_type
         # TODO worry about quoting
@@ -49,7 +54,7 @@ module Rooster
           options[:allow_nil] = true
         end
 
-        validates! enum_name, options
+        send validation_method, enum_name, options
 
         # Define a method that returns the valid enum values.
         # (could be used in select boxes, for example)
