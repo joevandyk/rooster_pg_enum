@@ -16,7 +16,9 @@ require 'active_support/concern'
 =end
 #
 # Also, to get a list of valid values for the `action_taken` column, do:
-#   refund.enum_values_for(:action_taken)
+#
+#   Refund.enum_values_for(:action_taken)
+#
 # This will return an array of valid values for the enum.
 #
 # This also sets up a scope for filtering based off valid enums.
@@ -58,7 +60,7 @@ module Rooster
 
         # Define a method that returns the valid enum values.
         # (could be used in select boxes, for example)
-        define_method :enum_values_for do |enum_name|
+        define_singlethon_method :enum_values_for do |enum_name|
           valid_items
         end
 
