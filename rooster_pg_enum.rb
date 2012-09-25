@@ -60,7 +60,7 @@ module Rooster
 
         # Define a method that returns the valid enum values.
         # (could be used in select boxes, for example)
-        define_singlethon_method :enum_values_for do |enum_name|
+        define_singleton_method :enum_values_for do |enum_name|
           valid_items
         end
 
