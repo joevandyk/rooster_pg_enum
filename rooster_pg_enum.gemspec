@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'rooster_pg_enum'
-  s.files         = ['pg_enum.rb']
+  s.files         = ['rooster_pg_enum.rb']
   s.require_path  = '.'
   s.version = "0.0.1"
   s.date = %q{2012-09-25}
