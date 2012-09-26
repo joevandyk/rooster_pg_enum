@@ -1,5 +1,6 @@
 require 'active_record'
 require 'active_support/concern'
+require 'active_record/connection_adapters/postgresql_adapter' # for monkeypatch at the end
 
 # Using postgresql enums? Use this to automatically handle validations and
 # retriving the list of valid values of the enum.
