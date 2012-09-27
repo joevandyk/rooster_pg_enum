@@ -57,7 +57,8 @@ module Rooster
           options[:allow_nil] = true
         end
 
-        send validation_method, enum_name, options
+        # Weirdness with this and validation of enums. :(
+        # send validation_method, enum_name, options
 
         # Define a method that returns the valid enum values.
         # (could be used in select boxes, for example)
