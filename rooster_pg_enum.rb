@@ -61,8 +61,12 @@ module Rooster
 
         # Define a method that returns the valid enum values.
         # (could be used in select boxes, for example)
-        define_singleton_method :enum_values_for do |enum_name|
+        define_singleton_method "#{enum_name}_values" do
           valid_items
+        end
+
+        define_singleton_method "#{enum_name}_for_select" do
+          Hash[valid_items.map { |i| [i.humanize, i] }]
         end
 
         scope enum_name, lambda { |value|
